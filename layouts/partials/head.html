@@ -10,7 +10,17 @@
 
   {{ "<!-- Plugins -->" | safeHTML }}
   {{ range site.Params.plugins.css }}
-  <link rel="stylesheet" href="{{ .link | absURL }}">
+    {{ $css := resources.Get .link | resources.PostCSS }}
+
+    {{ if hugo.IsProduction }}
+      {{ $css = $css | minify | fingerprint | resources.PostProcess }}
+    {{ end }}
+
+    <link
+      rel="stylesheet"
+      href="{{ $css.RelPermalink }}"
+      integrity="{{ $css.Data.Integrity }}"
+    >
   {{ end }}
 
   {{ with site.Params.snipcartApiKey }}
@@ -22,8 +32,21 @@
   {{ end }}
 
   {{ "<!-- Main Stylesheet -->" | safeHTML }}
-  {{ $styles := resources.Get "scss/style.scss" | toCSS | minify }}
-  <link rel="stylesheet" href="{{ $styles.Permalink }}" media="screen">
+  <!-- {{ $styles := resources.Get "scss/style.scss" | toCSS | minify }} -->
+  <!-- <link rel="stylesheet" href="{{ $styles.Permalink }}" media="screen"> -->
+
+  {{ $styles := resources.Get "scss/style.scss" | toCSS | resources.PostCSS }}
+
+  {{ if hugo.IsProduction }}
+    {{ $styles = $styles | minify | fingerprint | resources.PostProcess }}
+  {{ end }}
+
+  <link
+    rel="stylesheet"
+    href="{{ $styles.RelPermalink }}"
+    integrity="{{ $styles.Data.Integrity }}"
+  >
+
 
   {{ "<!-- Favicon -->" | safeHTML }}
   <link rel="shortcut icon" href="{{ `images/favicon.png` | absURL }} " type="image/x-icon">
