@@ -1,11 +1,11 @@
 <footer class="section pb-0">
   <div class="container">
-    <div class="row border-bottom pb-5 justify-content-between">
+    <div class="row border-bottom x-pb-5 justify-content-between">
       <div class="col-12 text-center section-sm">
         <a href="{{ site.BaseURL }}"><img src="{{ site.Params.logo | absURL }}" class="img-fluid"
             alt="{{ site.Title }}"></a>
       </div>
-      <div class="col-md-3 col-sm-6">
+      <div class="x-col-md-3 col-sm-6 pb-5">
         <h5 class="font-weight-medium mb-4">Important Links</h5>
         <ul class="list-unstyled">
           {{ range site.Menus.footer }}
@@ -13,7 +13,7 @@
           {{ end }}
         </ul>
       </div>
-      <div class="col-md-4 col-sm-6">
+      <div class="x-col-md-4 col-sm-6 pb-5">
         <h5 class="font-weight-medium mb-4">Connect With Us</h5>
         <ul class="list-unstyled mb-5">
           <li class="mb-3"><a class="text-color" href="tel:{{ site.Params.mobile }}"><i
@@ -31,15 +31,16 @@
           {{ end }}
         </ul>
       </div>
-      <div class="col-lg-4 col-md-5">
-        <h5 class="font-weight-medium mb-4">Contact us</h5>
-        <form action="{{ site.Params.contact.formAction }}" method="POST">
-          <input type="text" class="form-control mb-2" id="name" name="name" placeholder="Your Name">
-          <input type="email" class="form-control mb-2" id="email" name="email" placeholder="Your Email">
-          <textarea name="message" id="message" class="form-control mb-2" placeholder="Your Message"></textarea>
-          <button type="submit" value="send" class="btn btn-block btn-outline-primary rounded">Send Now</button>
-        </form>
-      </div>
+      <!-- <div class="col-lg-4 col-md-5"> -->
+        <!-- <h5 class="font-weight-medium mb-4">Contact us</h5> -->
+        <!-- <form action="{{ site.Params.contact.formAction }}" method="POST"> -->
+          <!-- <input type="text" class="form-control mb-2" id="name" name="name" placeholder="Your Name"> -->
+          <!-- <input type="email" class="form-control mb-2" id="email" name="email" placeholder="Your Email"> -->
+          <!-- <input type="hidden" name="store" id="store" value=""> -->
+          <!-- <textarea name="message" id="message" class="form-control mb-2" placeholder="Your Message"></textarea> -->
+          <!-- <button type="submit" value="send" class="btn btn-block btn-outline-primary rounded">Send Now</button> -->
+        <!-- </form> -->
+      <!-- </div> -->
     </div>
     <div class="row">
       <div class="col-12 text-center py-4">
@@ -58,12 +59,11 @@
 <script src="{{ site.Params.gmapAPI | absURL }}"></script>
 {{ "<!-- JS Plugins -->" | safeHTML }}
 {{ range site.Params.plugins.js}}
-<script src="{{ .link | absURL }}"></script>
+  {{ $script := resources.Get .link | minify}}
+  <script src="{{ $script.Permalink }}"></script>
 {{ end }}
 
 {{ "<!-- Main Script -->" | safeHTML }}
-{{ $script := resources.Get "js/script.js" | minify}}
-<script src="{{ $script.Permalink }}"></script>
 
 {{ with site.Params.googleAnalitycsID }}
 {{ "<!-- Google Analytics -->" | safeHTML }}

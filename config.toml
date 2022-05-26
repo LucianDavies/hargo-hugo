@@ -29,6 +29,8 @@ disqusShortname = ""
   link = "plugins/slick/slick.min.js"
   [[params.plugins.js]]
   link = "plugins/google-map/gmap.js"
+  [[params.plugins.js]]
+  link = "js/script.js"
 
 
 ############################## navigation ###############################
@@ -107,13 +109,13 @@ currencySymbol = "$"
 
   # Preloader
   [params.preloader]
-  enable = true
+  enable = false
   preloader = "" # use .png , .svg or .gif format
 
   # Product Rating
   # it works with https://rating-widget.com/ , you will get the ID and publicKey after creating your account there.
   [params.rating]
-  enable = true
+  enable = false
   websiteID = "444334"
   publicKey = "811cf0927332bf51f2e12f84608594ac"
 
@@ -140,6 +142,7 @@ currencySymbol = "$"
 
   # Contact Form
   [params.contact]
+  enable = false
   formAction = "#" # contact form works with formspree.io
 
 [build]

@@ -1,6 +1,6 @@
 ############################# contact info ################
 contact:
-  enable : true
+  enable : false
   # office
   office:
     title : "Central Office"
@@ -21,4 +21,4 @@ contact:
 
 ####################### google map ########################
 map:
-  enable: true
+  enable: false
