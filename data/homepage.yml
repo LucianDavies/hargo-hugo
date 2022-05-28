@@ -1,9 +1,8 @@
 ############################ banner ##########################
 banner:
   enable : true
-  title : "Best Beauty Cream For Your Skin"
-  content : "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-          dolore magna aliquyam erat, sed dia"
+  title : "hello"
+  content : "content"
   image : "images/banner.png"
   # button
   button:

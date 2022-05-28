@@ -1,10 +1,34 @@
-MY_PATH=$(dirname "$0")
+SCRIPT_PATH=$(dirname "$0")
+account="$1"
+ImageDimensions="upload/f_auto/c_scale,fl_progressive,q_auto:good,w_640"
+logo="images/logo.png"
 
-cat << EOF > "${MY_PATH}/config.toml"
+#################### Generate Store  ###############################
+store=$(echo $account | jq 'with_entries(select(.key | startswith("Store"))) as $store | with_entries(select(.key | startswith("Email"))) as $email | [ $store, $email ] | add')
+
+echo $store
+echo "___"
+
+title=$(echo $store | jq '.Store_Name')
+Store_Name_Lowercase=$(echo $title | jq -r 'ascii_downcase')
+store_description=$( echo $store | jq '.Store_Description')
+banner_title=$(echo $store | jq '.Store_Banner_title')
+banner_content=$(echo $store | jq '.Store_Banner_content')
+banner_image=$(echo $store | jq '.Store_Banner_image')
+mobile="#"
+email=$(echo $store | jq '."Email address"')
+location="Zimbabwe"
+instagram="#"
+twitter="#"
+facebook="#"
+
+
+
+cat << EOF > "${SCRIPT_PATH}/config.toml"
 ######################## default configuration ####################
-baseURL = ""
+baseURL = "https://tinywebshop.co/${Store_Name_Lowercase}"
 languageCode = "en"
-title = "Hargo | Hugo Ecommerce Site"
+title = $title
 theme = "hargo-hugo"
 summaryLength = "20"
 paginate = 10
@@ -44,20 +68,20 @@ disqusShortname = ""
   URL = "products/"
   weight = 1
 
-  [[menu.main]]
-  name = "Blog"
-  URL = "blog/"
-  weight = 2
+  # [[menu.main]]
+  # name = "Blog"
+  # URL = "blog/"
+  # weight = 2
 
-  [[menu.main]]
-  name = "FAQ"
-  URL = "faq/"
-  weight = 3
+  # [[menu.main]]
+  # name = "FAQ"
+  # URL = "faq/"
+  # weight = 3
 
-  [[menu.main]]
-  name = "Contact"
-  URL = "contact/"
-  weight = 4
+  # [[menu.main]]
+  # name = "Contact"
+  # URL = "contact/"
+  # weight = 4
 
   ############# footer menu #############
   [[menu.footer]]
@@ -65,47 +89,47 @@ disqusShortname = ""
   URL = "products/"
   weight = 1
 
-  [[menu.footer]]
-  name = "Blog"
-  URL = "blog/"
-  weight = 2
+  # [[menu.footer]]
+  # name = "Blog"
+  # URL = "blog/"
+  # weight = 2
 
-  [[menu.footer]]
-  name = "FAQ"
-  URL = "faq/"
-  weight = 3
+  # [[menu.footer]]
+  # name = "FAQ"
+  # URL = "faq/"
+  # weight = 3
 
-  [[menu.footer]]
-  name = "Terms & Conditions"
-  URL = "terms-conditions/"
-  weight = 4
+  # [[menu.footer]]
+  # name = "Terms & Conditions"
+  # URL = "terms-conditions/"
+  # weight = 4
 
-  [[menu.footer]]
-  name = "Contact"
-  URL = "contact/"
-  weight = 5
+  # [[menu.footer]]
+  # name = "Contact"
+  # URL = "contact/"
+  # weight = 5
 
 
 #################### default parameters ################################
 [params]
-logo = "images/logo.png"
+logo = ""
 home = "Home"
 # Meta data
-description = "This is meta description"
-author = "Themefisher"
+description = $store_description
+author = "TinyWebShop"
 # google map
-gmapAPI = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"
+gmapAPI = ""
 mapLatitude = "51.5223477"
 mapLongitude = "-0.1622023"
 mapMarker = "images/marker.png"
 # Google Analitycs
 googleAnalitycsID = "" # Your ID
 # Contact Information
-mobile = "0124857985320"
-email = "demo@email.com"
-location = "Dhaka, Bangladedsh"
+mobile = "$mobile"
+email = $email
+location = "$location"
 # copyright
-copyright = "| Copyright &copy; 2019 [Gethugothemes](https://gethugothemes.com) All Rights Reserved |"
+copyright = "| Copyright &copy; 2022 [TinyWebShop](https://tinywebshop.co) All Rights Reserved |"
 # Snipcart Credentials
 snipcartApiKey = "M2E5YjA3NjMtYzRiYS00YzVjLWEyYWYtNDY5ZDI0OWZhYjg5"
 currencySymbol = "$"
@@ -125,23 +149,23 @@ currencySymbol = "$"
   # Social Site
   [[params.social]]
   icon = "ti-facebook"
-  link = "#"
+  link = "${facebook}"
 
   [[params.social]]
   icon = "ti-twitter-alt"
-  link = "#"
+  link = "${twitter}"
 
-  [[params.social]]
-  icon = "ti-youtube"
-  link = "#"
+  # [[params.social]]
+  # icon = "ti-youtube"
+  # link = "#"
 
   [[params.social]]
   icon = "ti-instagram"
-  link = "#"
+  link = "${instagram}"
 
-  [[params.social]]
-  icon = "ti-pinterest"
-  link = "#"
+  # [[params.social]]
+  # icon = "ti-pinterest"
+  # link = "#"
 
   # Contact Form
   [params.contact]
@@ -153,7 +177,7 @@ currencySymbol = "$"
 EOF
 
 
-cat << EOF > "${MY_PATH}/data/contact.yml"
+cat << EOF > "${SCRIPT_PATH}/data/contact.yml"
 ############################# contact info ################
 contact:
   enable : false
@@ -180,7 +204,7 @@ map:
   enable: false
 EOF
 
-cat << EOF > "${MY_PATH}/data/faq.yml"
+cat << EOF > "${SCRIPT_PATH}/data/faq.yml"
 faqItem:
   - title : Will updates also be free?
     content : Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque praesentium nisi officiis maiores quia sapiente totam omnis vel sequi corporis ipsa incidunt reprehenderit recusandae maxime perspiciatis iste placeat architecto, mollitia delectus ut ab quibusdam. Magnam cumque numquam tempore reprehenderit illo, unde cum omnis vel sed temporibus, repudiandae impedit nam ad enim porro, qui labore fugiat quod suscipit fuga necessitatibus. Perferendis, ipsum? Cum, reprehenderit. Sapiente atque quam vitae, magnam dolore consequatur temporibus harum odit ab id quo qui aspernatur aliquid officiis sit error asperiores eveniet quibusdam, accusantium enim recusandae quas ea est! Quaerat omnis, placeat vitae laboriosam doloremque recusandae mollitia minima!
@@ -198,14 +222,13 @@ faqItem:
     content : Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque praesentium nisi officiis maiores quia sapiente totam omnis vel sequi corporis ipsa incidunt reprehenderit recusandae maxime perspiciatis iste placeat architecto, mollitia delectus ut ab quibusdam. Magnam cumque numquam tempore reprehenderit illo, unde cum omnis vel sed temporibus, repudiandae impedit nam ad enim porro, qui labore fugiat quod suscipit fuga necessitatibus. Perferendis, ipsum? Cum, reprehenderit. Sapiente atque quam vitae, magnam dolore consequatur temporibus harum odit ab id quo qui aspernatur aliquid officiis sit error asperiores eveniet quibusdam, accusantium enim recusandae quas ea est! Quaerat omnis, placeat vitae laboriosam doloremque recusandae mollitia minima!
 EOF
 
-cat << EOF > "${MY_PATH}/data/homepage.yml"
+cat << EOF > "${SCRIPT_PATH}/data/homepage.yml"
 ############################ banner ##########################
 banner:
   enable : true
-  title : "Best Beauty Cream For Your Skin"
-  content : "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-          dolore magna aliquyam erat, sed dia"
-  image : "images/banner.png"
+  title : $banner_title
+  content : $banner_content
+  image : $banner_image
   # button
   button:
     enable : true
@@ -330,3 +353,63 @@ testimonial:
       content : "Lorem ipsum dolor sit amet, <br> consetetur sadipscing elitr, diam <br> nonumy eirmod tempor"
       rating : "four" # rating star, one to five
 EOF
+
+
+#################### Generate Products  ###############################
+find $SCRIPT_PATH/content/products -type f -not -name '_index.md' -print0 | xargs -0 -I {} rm -v {}
+
+products=$(echo $account | jq -f "$SCRIPT_PATH/.generate_product.jq")
+
+echo $products
+echo "___"
+
+echo "$products" | jq -c '.[]' | while read product;
+do
+    Store_Name=$(echo $product | jq -r '.Store_Name | ascii_downcase')
+    Product_Name=$(echo $product | jq -r .Product_Name)
+    Product_Images=$(echo $product | jq -r .Product_Images)
+    Description=$(echo $product | jq -r .Description)
+    Short_Description=$(echo $product | jq -r .Short_Description)
+    Price=$(echo $product | jq -r .Price)
+    Price_Before=$(echo $product | jq -r .Price_Before)
+    Product_Id=$(echo -n $Product_Name | crc32 /dev/stdin)
+   
+    IFS=', ' read -r -a Product_Image_List <<< "$Product_Images"
+
+    FileName=$(echo "${Store_Name}_${Product_Name}_${Product_Id}" | sed 's/ //g')
+
+echo "content/products/${FileName}.md"
+cat << EOF > "${SCRIPT_PATH}/content/products/${FileName}.md"
+---
+title: "${Product_Name}"
+date: $(date -u '+%Y-%m-%dT%H:%M:%S%z')
+draft: false
+
+# meta description
+description : "${Short_Description}"
+
+# product Price
+price: "${Price}"
+priceBefore: "${Price_Before}"
+
+# Product Short Description
+shortDescription: "${Short_Description}"
+
+#product ID
+productID: "${Product_Id}"
+
+# type must be "products"
+type: "products"
+
+# product Images
+# first image will be shown in the product page
+images:
+$(for i in ${!Product_Image_List[@]}; do
+  Image="${Product_Image_List[$i]/upload/${ImageDimensions}}"
+  echo - image: \"${Image}\"
+done)
+---
+
+${Description}
+EOF
+done
