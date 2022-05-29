@@ -17,12 +17,7 @@
 
     <link
       rel="stylesheet"
-      href="{{ $css.Permalink }}"
-      integrity="{{ $css.Data.Integrity }}"
-    >
-    <link
-      rel="stylesheet"
-      href="{{ $css.RelPermalink }}"
+      href="{{ $css.RelPermalink | absURL }}"
       integrity="{{ $css.Data.Integrity }}"
     >
   {{ end }}
