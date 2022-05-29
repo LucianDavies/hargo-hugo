@@ -1,7 +1,7 @@
 <head>
   <meta charset="UTF-8">
-  <title>{{ site.Title }}</title>
-  <base href="{{site.baseurl}}">
+  <title>{{ .Site.Title }}</title>
+  <base href="{{ .Site.BaseURL }}">
 
   {{ "<!-- Mobile Responsive Meta -->" | safeHTML }}
   <meta name="viewport" content="width=device-width, initial-scale=1">
