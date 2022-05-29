@@ -26,7 +26,8 @@ facebook="#"
 
 cat << EOF > "${SCRIPT_PATH}/config.toml"
 ######################## default configuration ####################
-baseURL = "https://tinywebshop.co/${Store_Name_Lowercase}/"
+# baseURL = "https://tinywebshop.co/${Store_Name_Lowercase}/"
+baseURL = "https://tinywebshop.co/"
 languageCode = "en"
 title = $title
 theme = "hargo-hugo"
@@ -39,13 +40,13 @@ disqusShortname = ""
 
   # CSS Plugins
   [[params.plugins.css]]
-  link = "/plugins/bootstrap/bootstrap.min.css"
+  link = "plugins/bootstrap/bootstrap.min.css"
   [[params.plugins.css]]
-  link = "/plugins/slick/slick.css"
+  link = "plugins/slick/slick.css"
   [[params.plugins.css]]
-  link = "/plugins/themify-icons/themify-icons.css"
+  link = "plugins/themify-icons/themify-icons.css"
   [[params.plugins.css]]
-  link = "./scss/style.scss"
+  link = "scss/style.scss"
 
   # JS Plugins
   [[params.plugins.js]]
