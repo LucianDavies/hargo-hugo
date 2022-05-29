@@ -1,5 +1,5 @@
 ######################## default configuration ####################
-baseURL = "https://tinywebshop.co/ellex"
+baseURL = "/"
 languageCode = "en"
 title = "Ellex"
 theme = "hargo-hugo"
