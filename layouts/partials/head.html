@@ -1,7 +1,7 @@
 <head>
   <meta charset="UTF-8">
   <title>{{ with .Title }}{{ . }}{{ end }}</title>
-  {{ with site.BaseURL }}
+  {{ with .BaseURL }}
     <base href="{{ . }}" />
   {{ end }}
 
