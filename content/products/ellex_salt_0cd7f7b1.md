@@ -1,6 +1,6 @@
 ---
 title: "salt"
-date: 2022-05-29T20:52:13+0000
+date: 2022-05-29T20:59:19+0000
 draft: false
 
 # meta description
