@@ -26,8 +26,7 @@ facebook="#"
 
 cat << EOF > "${SCRIPT_PATH}/config.toml"
 ######################## default configuration ####################
-# baseURL = "https://tinywebshop.co/${Store_Name_Lowercase}/"
-baseURL = "https://tinywebshop.co/"
+baseURL = "https://tinywebshop.co/${Store_Name_Lowercase}/"
 languageCode = "en"
 title = $title
 theme = "hargo-hugo"
