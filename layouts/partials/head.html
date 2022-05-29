@@ -14,10 +14,9 @@
       {{ $css = $css | minify | fingerprint | resources.PostProcess }}
     {{ end }}
 
-    {{ $css }}
     <link
       rel="stylesheet"
-      href="{{ $css }}"
+      href="{{ $css | absURL }}"
       integrity="{{ $css.Data.Integrity }}"
     >
   {{ end }}
