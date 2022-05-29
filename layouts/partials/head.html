@@ -1,7 +1,6 @@
 <head>
   <meta charset="UTF-8">
   <title>{{ .Title }}</title>
-  <base href="{{ site.BaseURL }}">
 
   {{ "<!-- Mobile Responsive Meta -->" | safeHTML }}
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +10,6 @@
   {{ "<!-- Plugins -->" | safeHTML }}
   {{ range site.Params.plugins.css }}
     {{ $css := resources.Get .link | toCSS | resources.PostCSS }}
-
     {{ if hugo.IsProduction }}
       {{ $css = $css | minify | fingerprint | resources.PostProcess }}
     {{ end }}
