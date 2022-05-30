@@ -1,11 +1,11 @@
 <head>
   <meta charset="UTF-8">
-  <title>ellex</title>
-  <base href="https://tinywebshop.co/ellex/" />
+  <title></title>
 
   {{ "<!-- Mobile Responsive Meta -->" | safeHTML }}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with site.Params.description }}{{ . }}{{ end }}{{ end }}">
+  {{ .Site.BaseURL }}
   {{ with site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
 
   {{ "<!-- Plugins -->" | safeHTML }}
@@ -15,6 +15,9 @@
       {{ $css = $css | minify | fingerprint | resources.PostProcess }}
     {{ end }}
 
+    {{ .Site.BaseURL }}
+    {{ $css.RelPermalink }}
+    {{ $css.Permalink }}
     <link
       rel="stylesheet"
       href="{{ $css.RelPermalink }}"
