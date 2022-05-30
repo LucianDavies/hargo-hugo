@@ -60,7 +60,7 @@
 {{ "<!-- JS Plugins -->" | safeHTML }}
 {{ range site.Params.plugins.js}}
   {{ $script := resources.Get .link | minify}}
-  <script src="{{ $script.Permalink }}"></script>
+  <script src="{{ $script.RelPermalink }}"></script>
 {{ end }}
 
 {{ "<!-- Main Script -->" | safeHTML }}
