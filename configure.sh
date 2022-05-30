@@ -33,7 +33,6 @@ theme = "hargo-hugo"
 summaryLength = "20"
 paginate = 10
 disqusShortname = ""
-canonifyurls = true
 
 ############################# Plugins ##############################
 [params.plugins]
