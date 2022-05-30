@@ -28,7 +28,7 @@ cat << EOF > "${SCRIPT_PATH}/config.toml"
 ######################## default configuration ####################
 baseURL = "https://tinywebshop.co/${Store_Name_Lowercase}/"
 languageCode = "en"
-title = ${title}
+title = "TWS | ${Store_Name}"
 theme = "hargo-hugo"
 summaryLength = "20"
 paginate = 10
