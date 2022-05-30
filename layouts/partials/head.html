@@ -17,7 +17,7 @@
 
     <link
       rel="stylesheet"
-      href="{{ strings.TrimPrefix "/" $css.Permalink }}"
+      href="{{ .Site.BaseURL | relURL }}{{ strings.TrimPrefix "/" $css.Permalink }}"
       integrity="{{ $css.Data.Integrity }}"
     >
     <link
