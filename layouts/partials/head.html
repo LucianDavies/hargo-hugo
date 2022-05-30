@@ -22,7 +22,8 @@
   {{ end }}
 
   {{ "<!-- Main Stylesheet -->" | safeHTML }}
-  {{ $styles := resources.Get "scss/style.scss" | toCSS | minify }}
+  {{ $options := dict "inlineImports" true }}
+  {{ $styles := resources.Get "scss/style.scss" | toCSS | minify | resources.PostCSS $options  }}
   <link rel="stylesheet" href="{{ $styles.Permalink }}" media="screen">
 
   {{ $styles.Permalink | absURL }}
