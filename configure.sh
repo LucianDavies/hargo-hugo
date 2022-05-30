@@ -40,7 +40,7 @@ canonifyurls = true
 
   # CSS Plugins
   [[params.plugins.css]]
-  link = "plugins/bootstrap/bootstrap.min.css"
+  link = "/plugins/bootstrap/bootstrap.min.css"
   [[params.plugins.css]]
   link = "plugins/slick/slick.css"
   [[params.plugins.css]]
