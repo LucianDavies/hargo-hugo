@@ -15,9 +15,11 @@
       {{ $css = $css | minify | fingerprint | resources.PostProcess }}
     {{ end }}
 
-    {{ .Site.BaseURL }}
-    {{ $css.RelPermalink }}
-    {{ $css.Permalink }}
+    <link
+      rel="stylesheet"
+      href="{{ strings.TrimPrefix "/" $css.Permalink }}"
+      integrity="{{ $css.Data.Integrity }}"
+    >
     <link
       rel="stylesheet"
       href="{{ $css.RelPermalink }}"
