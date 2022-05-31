@@ -1,9 +1,9 @@
 ############################ banner ##########################
 banner:
   enable : true
-  title : "hello"
-  content : "content"
-  image : "images/banner.png"
+  title : null
+  content : null
+  image : null
   # button
   button:
     enable : true
