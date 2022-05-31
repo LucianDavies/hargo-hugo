@@ -26,7 +26,7 @@ echo "$Store_Name_Lowercase"
 
 cat << EOF > "${SCRIPT_PATH}/config.toml"
 ######################## default configuration ####################
-baseURL = "https://tinywebshop.co/"
+baseURL = "https://tinywebshop.co/${Store_Name_Lowercase}"
 languageCode = "en"
 title = "TWS | ${Store_Name}"
 theme = "hargo-hugo"
