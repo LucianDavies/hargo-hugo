@@ -64,7 +64,7 @@
 
 {{ "<!-- Main Script -->" | safeHTML }}
 {{ $script := resources.Get "js/script.js" | minify}}
-<script src="{{ $script.Permalink }}"></script>
+<script src="{{ strings.TrimPrefix "/" $script.Permalink }}"></script>
 
 {{ with site.Params.googleAnalitycsID }}
 {{ "<!-- Google Analytics -->" | safeHTML }}
