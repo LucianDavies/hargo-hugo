@@ -353,6 +353,7 @@ EOF
 #################### Generate Products  ###############################
 find $SCRIPT_PATH/content/products -type f -not -name '_index.md' -print0 | xargs -0 -I {} rm -v {}
 
+echo $account
 products=$(echo $account | jq -f "$SCRIPT_PATH/.generate_product.jq")
 
 echo $products
