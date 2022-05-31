@@ -26,7 +26,7 @@ echo "$Store_Name_Lowercase"
 
 cat << EOF > "${SCRIPT_PATH}/config.toml"
 ######################## default configuration ####################
-baseURL = "https://lucindavies.github.io/${Store_Name_Lowercase}/"
+# baseURL = "https://lucindavies.github.io/${Store_Name_Lowercase}/"
 canonifyurls = true
 languageCode = "en"
 title = "TWS | ${Store_Name}"

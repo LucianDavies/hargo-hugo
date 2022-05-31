@@ -22,12 +22,8 @@
   {{ end }}
 
   {{ "<!-- Main Stylesheet -->" | safeHTML }}
-  {{ $options := dict "inlineImports" true }}
-  {{ $styles := resources.Get "scss/style.scss" | toCSS | minify | resources.PostCSS $options  }}
-  <link rel="stylesheet" href="{{ $styles.Permalink }}" media="screen">
-
-  {{ $styles.Permalink | absURL }}
-  {{ $styles.RelPermalink | relURL }}
+  {{ $styles := resources.Get "scss/style.scss" | toCSS | minify }}
+<style type="text/css">{{$styles.Content | safeCSS}}</style>
 
   {{ "<!-- Favicon -->" | safeHTML }}
   <link rel="shortcut icon" href="{{ `images/favicon.png` | absURL }} " type="image/x-icon">
