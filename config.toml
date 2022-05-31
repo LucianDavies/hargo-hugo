@@ -1,6 +1,6 @@
 ######################## default configuration ####################
-# baseURL = "https://tinywebshop.co/ellex"
-baseURL = "https://demo.gethugothemes.com/hargo/examplesite/"
+baseURL = "https://tinywebshop.co/ellex/"
+relativeURLs=true
 languageCode = "en"
 title = "TWS | "
 theme = "hargo-hugo"

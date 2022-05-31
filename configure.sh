@@ -22,9 +22,7 @@ instagram="#"
 twitter="#"
 facebook="#"
 
-echo "$Store_Name_Lowercase"
-
-cat << EOF > "${SCRIPT_PATH}/config.toml"
+cat << EOF > "config.toml"
 ######################## default configuration ####################
 baseURL = "https://tinywebshop.co/${Store_Name_Lowercase}/"
 relativeURLs=true
