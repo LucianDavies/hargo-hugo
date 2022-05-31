@@ -44,8 +44,6 @@ disqusShortname = ""
   link = "plugins/slick/slick.css"
   [[params.plugins.css]]
   link = "plugins/themify-icons/themify-icons.css"
-  # [[params.plugins.css]]
-  # link = "scss/style.scss"
 
   # JS Plugins
   [[params.plugins.js]]
@@ -56,8 +54,6 @@ disqusShortname = ""
   link = "plugins/slick/slick.min.js"
   [[params.plugins.js]]
   link = "plugins/google-map/gmap.js"
-  # [[params.plugins.js]]
-  # link = "js/script.js"
 
 
 ############################## navigation ###############################

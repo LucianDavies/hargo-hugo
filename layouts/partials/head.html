@@ -23,7 +23,7 @@
 
   {{ "<!-- Main Stylesheet -->" | safeHTML }}
   {{ $styles := resources.Get "scss/style.scss" | toCSS | minify }}
-<style type="text/css">{{$styles.Content | safeCSS}}</style>
+  <link rel="stylesheet" href="{{ $styles.Permalink | relURL }}" media="screen">
 
   {{ "<!-- Favicon -->" | safeHTML }}
   <link rel="shortcut icon" href="{{ `images/favicon.png` | absURL }} " type="image/x-icon">
