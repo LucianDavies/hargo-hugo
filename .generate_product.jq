@@ -5,7 +5,8 @@ def remove_suffix: split("_") | map(select(length > 3)) | join("_");
 def remove_suffix_product: [to_entries[] | { "key" : (.key | remove_suffix), "value" :.value }] | from_entries;
 def extract_store_from_acc: with_entries(select(.key | startswith("Store")));
 def extract_products_from_acc (suffix): with_entries(select(.key | endswith(suffix))) | remove_suffix_product;
-def filter_empty_product: select(.Price | length > 1);
+# def filter_empty_product: select(.Price | length > 1);
+def filter_empty_product: .;
 def generate_product_object (current_account): 
   . as $current_product_index |
   current_account | extract_store_from_acc as $store |
