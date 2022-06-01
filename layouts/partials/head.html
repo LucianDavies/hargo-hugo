@@ -19,6 +19,7 @@
   {{ range site.Params.plugins.css }}
   {{ $css := resources.Get .link | resources.PostCSS }}
   {{ if hugo.IsProduction }}
+    <br/>
     {{ $css = $css | minify | fingerprint | resources.PostProcess }}
   {{ end }}
 
