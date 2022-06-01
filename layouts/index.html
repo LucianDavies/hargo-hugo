@@ -2,6 +2,7 @@
 
 <!-- banner -->
 {{ if site.Data.homepage.banner.enable }}
+{{ if site.Data.homepage.banner.image }}
 {{ with site.Data.homepage.banner }}
 <section class="section-sm">
   <div class="container">
@@ -39,6 +40,7 @@
     </div>
   </div>
 </section>
+{{ end }}
 {{ end }}
 {{ end }}
 <!-- /banner -->
