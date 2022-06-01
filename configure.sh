@@ -127,7 +127,7 @@ location = "$location"
 # copyright
 copyright = "| Copyright &copy; 2022 [TinyWebShop](https://tinywebshop.co) All Rights Reserved |"
 # Snipcart Credentials
-snipcartApiKey = "M2E5YjA3NjMtYzRiYS00YzVjLWEyYWYtNDY5ZDI0OWZhYjg5"
+snipcartApiKey = "ZDRmOGM1ZGQtZWU1OS00N2RhLTg3YzAtOWFiYzZjMGQ2N2NlNjM2OTU4OTIzMzIyNTQwOTE0"
 currencySymbol = "$"
 
   # Preloader
