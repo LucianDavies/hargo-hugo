@@ -27,7 +27,7 @@ cat << EOF > "config.toml"
 baseURL = "https://tinywebshop.co/${Store_Name_Lowercase}/"
 relativeURLs=true
 languageCode = "en"
-title = "TWS | ${Store_Name}"
+title = "TWS | ${title}"
 theme = "hargo-hugo"
 summaryLength = "20"
 paginate = 10
