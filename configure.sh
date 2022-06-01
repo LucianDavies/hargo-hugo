@@ -9,8 +9,9 @@ store=$(echo $account | jq 'with_entries(select(.key | startswith("Store"))) as 
 echo $store
 echo "___"
 
-title=$(echo $store | jq '.Store_Name')
-Store_Name_Lowercase=$(echo $title | jq -r 'ascii_downcase')
+store_name=$(echo $store | jq '.Store_Name')
+title=$(echo $store_name | jq -r '.')
+Store_Name_Lowercase=$(echo $store_name | jq -r 'ascii_downcase')
 store_description=$( echo $store | jq '.Store_Description')
 banner_title=$(echo $store | jq '.Store_Banner_title')
 banner_content=$(echo $store | jq '.Store_Banner_content')
@@ -27,7 +28,7 @@ cat << EOF > "config.toml"
 baseURL = "https://tinywebshop.co/${Store_Name_Lowercase}/"
 relativeURLs=true
 languageCode = "en"
-title = "TWS | ${title}"
+title = "TWS | ${Store_Name}"
 theme = "hargo-hugo"
 summaryLength = "20"
 paginate = 10
