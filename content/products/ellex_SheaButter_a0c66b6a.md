@@ -1,6 +1,6 @@
 ---
 title: "Shea Butter "
-date: 2022-05-31T22:24:33+0000
+date: 2022-06-01T06:58:08+0000
 draft: false
 
 # meta description
@@ -22,8 +22,8 @@ type: "products"
 # product Images
 # first image will be shown in the product page
 images:
-- image: "https://res.cloudinary.com/dygkxkgda/image/upload/f_auto/c_scale,fl_progressive,q_auto:good,w_640/product-images/1Y21KW_oyEvylSdMoClPjtCEqSiWUmNMn"
-- image: "https://res.cloudinary.com/dygkxkgda/image/upload/f_auto/c_scale,fl_progressive,q_auto:good,w_640/product-images/1kLZt0nE-uMDEzDdcE5YDuCrDBqKfSR9s"
+- image: "https://res.cloudinary.com/dygkxkgda/image/upload/f_auto/c_fill,fl_progressive,q_auto:good,w_640,h_427/product-images/1Y21KW_oyEvylSdMoClPjtCEqSiWUmNMn"
+- image: "https://res.cloudinary.com/dygkxkgda/image/upload/f_auto/c_fill,fl_progressive,q_auto:good,w_640,h_427/product-images/1kLZt0nE-uMDEzDdcE5YDuCrDBqKfSR9s"
 ---
 
 Raw African Shea Butter

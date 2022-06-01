@@ -13,20 +13,6 @@
   <link rel="stylesheet" href="{{ .link | absURL }}">
   {{ end }}
 
-  {{ range site.Params.plugins.css }}
-    {{ $css := resources.Get .link | resources.toCSS }}
-
-    {{ if hugo.IsProduction }}
-      {{ $css = $css | minify | fingerprint | resources.PostProcess }}
-    {{ end }}
-
-    <link
-      rel="stylesheet"
-      href="{{ $css.Permalink | absURL }}"
-      integrity="{{ $css.Data.Integrity }}"
-    >
-  {{ end }}
-
   {{ with site.Params.snipcartApiKey }}
   {{ "<!-- Snipcart -->" | safeHTML }}
   <link rel="preconnect" href="https://app.snipcart.com/">
@@ -37,7 +23,7 @@
 
   {{ "<!-- Main Stylesheet -->" | safeHTML }}
   {{ $styles := resources.Get "scss/style.scss" | toCSS | minify }}
-  <link rel="stylesheet" href="{{ $styles.Permalink | absURL }}" media="screen">
+  <link rel="stylesheet" href="{{ $styles.RelPermalink | absURL }}" media="screen">
 
   {{ "<!-- Favicon -->" | safeHTML }}
   <link rel="shortcut icon" href="{{ `images/favicon.png` | absURL }} " type="image/x-icon">
