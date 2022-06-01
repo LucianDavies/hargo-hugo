@@ -1,6 +1,6 @@
 ---
 title: "Shea Butter "
-date: 2022-06-01T07:49:16+0000
+date: 2022-06-01T21:18:47+0000
 draft: false
 
 # meta description

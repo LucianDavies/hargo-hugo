@@ -7,19 +7,11 @@
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with site.Params.description }}{{ . }}{{ end }}{{ end }}">
   {{ with site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
 
-  {{ with site.Params.snipcartApiKey }}
-  {{ "<!-- Snipcart -->" | safeHTML }}
-  <link rel="preconnect" href="https://app.snipcart.com/">
-  <link rel="preconnect" href="https://cdn.snipcart.com/">
-  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.28/default/snipcart.css">
-  <script async src="https://cdn.snipcart.com/themes/v3.0.28/default/snipcart.js"></script>
-  {{ end }}
 
   {{ "<!-- Main Stylesheet -->" | safeHTML }}
   {{ range site.Params.plugins.css }}
-  {{ $css := resources.Get .link | resources.PostCSS }}
+  {{ $css := resources.Get .link | resources.ToCSS | resources.PostCSS }}
   {{ if hugo.IsProduction }}
-    <br/>
     {{ $css = $css | minify | fingerprint | resources.PostProcess }}
   {{ end }}
 
@@ -28,6 +20,14 @@
     href="{{ $css.RelPermalink }}"
     integrity="{{ $css.Data.Integrity }}"
   >
+  {{ end }}
+
+  {{ with site.Params.snipcartApiKey }}
+  {{ "<!-- Snipcart -->" | safeHTML }}
+  <link rel="preconnect" href="https://app.snipcart.com/">
+  <link rel="preconnect" href="https://cdn.snipcart.com/">
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.28/default/snipcart.css">
+  <script async src="https://cdn.snipcart.com/themes/v3.0.28/default/snipcart.js"></script>
   {{ end }}
 
   {{ "<!-- Favicon -->" | safeHTML }}
