@@ -1,6 +1,6 @@
 SCRIPT_PATH=$(dirname "$0")
 account="$1"
-ImageDimensions="upload/f_auto/c_scale,fl_progressive,q_auto:good,w_640"
+ImageDimensions="upload/f_auto/c_fill,fl_progressive,q_auto:good,w_640,h_427"
 logo="images/logo.png"
 
 #################### Generate Store  ###############################
