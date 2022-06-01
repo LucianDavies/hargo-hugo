@@ -26,6 +26,7 @@ facebook="#"
 cat << EOF > "config.toml"
 ######################## default configuration ####################
 baseURL = "https://tinywebshop.co/${Store_Name_Lowercase}/"
+relativeURLs=true
 languageCode = "en"
 title = "TWS | ${title}"
 theme = "hargo-hugo"
