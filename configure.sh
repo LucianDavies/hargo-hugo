@@ -26,7 +26,6 @@ facebook="#"
 cat << EOF > "config.toml"
 ######################## default configuration ####################
 baseURL = "https://tinywebshop.co/${Store_Name_Lowercase}/"
-relativeURLs=true
 languageCode = "en"
 title = "TWS | ${title}"
 theme = "hargo-hugo"
@@ -44,8 +43,8 @@ disqusShortname = ""
   link = "plugins/slick/slick.css"
   [[params.plugins.css]]
   link = "plugins/themify-icons/themify-icons.css"
-  [[params.plugins.css]]
-  link = "scss/style.scss"
+  # [[params.plugins.css]]
+  # link = "scss/style.scss"
 
   # JS Plugins
   [[params.plugins.js]]
@@ -54,8 +53,8 @@ disqusShortname = ""
   link = "plugins/bootstrap/bootstrap.min.js"
   [[params.plugins.js]]
   link = "plugins/slick/slick.min.js"
-  [[params.plugins.js]]
-  link = "js/script.js"
+  # [[params.plugins.js]]
+  # link = "js/script.js"
 
 
 ############################## navigation ###############################
